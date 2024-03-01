@@ -1,7 +1,9 @@
 # vpngw-env
 
 ## はじめに
-本 Bicep は VPNGW の環境を作成するBicepです。 [vnet-peering-base-env](https://github.com/takutsu001/vnet-peering-base-env) の Bicep で作成される環境に対し `Onpre-VNet` と `Hub-VNet` に存在する GatewaySubnet に VPN Gateway を作成し、それぞれの VPN Gateway を接続させています（経路情報交換はBGPではなくルートベース）。
+本 Bicep は VPNGW の環境を作成するBicepです
+
+ [vnet-peering-base-env](https://github.com/takutsu001/vnet-peering-base-env) の Bicep で作成される環境に対し `Onpre-VNet` と `Hub-VNet` に存在する GatewaySubnet に VPN Gateway を作成し、それぞれの VPN Gateway を接続させています（経路情報交換はBGPではなくルートベース）
 
 ## 構成図
 ![](/images/vpngw-topology.png)
