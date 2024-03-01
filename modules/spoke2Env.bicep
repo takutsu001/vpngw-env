@@ -97,9 +97,15 @@ resource peeringHub2Spoke 'Microsoft.Network/virtualNetworks/virtualNetworkPeeri
       id: spoke2VNet.id
     }
     allowVirtualNetworkAccess: true
-    allowForwardedTraffic: false
-    allowGatewayTransit: false
+    allowForwardedTraffic: true
+    allowGatewayTransit: true
     useRemoteGateways: false
+    remoteAddressSpace: {
+      addressPrefixes: ['${spoke2VNet}']
+    }
+    remoteVirtualNetworkAddressSpace: {
+      addressPrefixes: ['${spoke2VNet}']
+    }
   }
 }
 
@@ -112,9 +118,15 @@ resource peeringspoke2hub 'Microsoft.Network/virtualNetworks/virtualNetworkPeeri
       id: hubVNet.id
     }
     allowVirtualNetworkAccess: true
-    allowForwardedTraffic: false
+    allowForwardedTraffic: true
     allowGatewayTransit: false
-    useRemoteGateways: false
+    useRemoteGateways: true
+    remoteAddressSpace: {
+      addressPrefixes: ['${hubVNet}']
+    }
+    remoteVirtualNetworkAddressSpace: {
+      addressPrefixes: ['${hubVNet}']
+    }
   }
 }
 
