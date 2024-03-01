@@ -4,7 +4,7 @@ param resourceGroupName = 'VPNGW-RG'
 param resourceGroupLocation = 'japaneast'
 // ---- for Firewall Rule ----
 // your ip address for SSH (ex. xxx.xxx.xxx.xxx)
-param myipaddress = '124.37.254.233'
+param myipaddress = '<Public IP your PC Address>'
 // ---- param for Hub ----
 param hubVNetName = 'Hub-VNet'
 param hubVNetAddress = '10.0.0.0/16'
