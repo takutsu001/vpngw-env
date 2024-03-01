@@ -27,6 +27,8 @@ param adminPassword string
 // for VPN Gateway
 param hubVPNGWName string
 param hubLngName string
+param spoke1VNetAddress string
+param spoke2VNetAddress string
 
 /*
 ------------------
@@ -256,7 +258,7 @@ resource hubLng 'Microsoft.Network/localNetworkGateways@2023-06-01' = {
   location: location
   properties: {
     localNetworkAddressSpace: {
-      addressPrefixes: ['${hubVNetAddress}']
+      addressPrefixes: ['${hubVNetAddress}', '${spoke1VNetAddress}', '${spoke2VNetAddress}']
     }
     gatewayIpAddress: hubVPNGWpip.properties.ipAddress
   }
