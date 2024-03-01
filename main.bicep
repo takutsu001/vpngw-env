@@ -108,6 +108,8 @@ module HubModule './modules/hubEnv.bicep' = {
     adminPassword: adminPassword
     hubVPNGWName: hubVPNGWName
     hubLngName: hubLngName
+    spoke1VNetAddress: spoke1VNetAddress
+    spoke2VNetAddress: spoke2VNetAddress
   } 
 }
 
