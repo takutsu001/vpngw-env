@@ -9,7 +9,8 @@
 ![](/images/vpngw-topology.png)
 
 > [!NOTE]
-> - 本環境では Azure Firewall は作成されません (vnet-peering-base-env をベースにしているため `AzureFirewallSubnet` は作成されますが利用しません) 
+> - 本環境では Azure Firewall は作成されません ( [vnet-peering-base-env](https://github.com/takutsu001/vnet-peering-base-env) をベースにしているため `AzureFirewallSubnet` は作成されますが利用しません) 
+> - 本Bicepは約30分程度で完了します (VPN Gateway の作成に時間が掛かるため、少し長めとなります。ご注意ください)
 
 > [!WARNING]
 > 本環境は HUB の踏み台サーバーを経由して Spokeやオンプレ の VM にアクセスするような構成です。NSG で SSH(22) への接続を許可するルールを作成していますが、セキュリティリスクが高いため、あくまでも検証用途としてご利用ください（本来は Azure Bastion や Azure Firewall を利用して踏み台サーバーへアクセスさせるべきですが、費用を下げるため NSG で穴あけを行っています）
