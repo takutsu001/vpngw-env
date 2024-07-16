@@ -72,3 +72,6 @@ az logout
 ## その他
  - 本Bicepは [vnet-peering-base-env](https://github.com/takutsu001/vnet-peering-base-env) をベースに作成しています
  - 本Bicepでは hub 踏み台サーバ (hub-jump-centos) のパブリックIP に対する DNS レコードの登録は削除しています
+
+## 実行時のエラーについて
+ampls-base-envの [実行時のエラーについて](https://github.com/takutsu001/ampls-base-env?tab=readme-ov-file#%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6) をご参照ください。
