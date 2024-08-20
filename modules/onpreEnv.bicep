@@ -55,7 +55,7 @@ resource section
 
 // create network security group for onpre vnet
 resource nsgDefault 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
-  name: 'onpre-nsg'
+  name: '${onpreVNetName}-nsg'
   location: location
   properties: {
   //  securityRules: [

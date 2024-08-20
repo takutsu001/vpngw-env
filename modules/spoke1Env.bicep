@@ -42,7 +42,7 @@ resource section
 */
 // create network security group for spoke vnet
 resource nsgDefault 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
-  name: 'spoke1-nsg'
+  name: '${spoke1VNetName}-nsg'
   location: location
   properties: {
   //  securityRules: [
