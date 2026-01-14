@@ -44,9 +44,6 @@ https://learn.microsoft.com/ja-jp/azure/azure-resource-manager/bicep/install
 
 ※Git を利用できる環境ではない場合はファイルをダウンロードしていただくでも問題ないと思います。その場合は、以下の構成でローカルPCにファイルを設置してください
 
-
-※Git を利用できる環境ではない場合はファイルをダウンロードしていただくでも問題ないと思います。その場合は、以下の構成でローカルPCにファイルを設置してください
-
 ```
 main.bicep
 main.prod.bicepparam
