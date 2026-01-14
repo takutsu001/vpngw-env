@@ -45,5 +45,8 @@ param onpreLngName = 'Onpre-LNG'
 param vmSizeLinux = 'Standard_B2s'
 param adminUserName = 'cloudadmin'
 param adminPassword = 'msjapan1!msjapan1!'
+// ---- Optional: Spot VM (discount) ----
+// If true, all Linux VMs in this environment will be created as Spot VMs.
+param useSpotVm = false
 // ---- Common param for VPNGW ----
 param connectionsharedkey = 'msjapan1!msjapan1!'

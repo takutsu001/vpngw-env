@@ -24,6 +24,8 @@ param vmSizeLinux string
 param adminUserName string
 @secure()
 param adminPassword string
+// Spot VM (optional)
+param useSpotVm bool = false
 // for VPN Gateway
 param hubVPNGWName string
 param hubLngName string
@@ -59,6 +61,14 @@ var hubSubnet3 = {
     addressPrefix: hubSubnetAddress3
   } 
 } 
+
+var spotVmProperties = useSpotVm ? {
+  priority: 'Spot'
+  evictionPolicy: 'Deallocate'
+  billingProfile: {
+    maxPrice: -1
+  }
+} : {}
 
 /*
 ------------------
@@ -161,7 +171,7 @@ resource centosVM1 'Microsoft.Compute/virtualMachines@2023-03-01' = {
     publisher: 'cognosys'
     product: 'centos-8-0-free'
   }
-  properties: {
+  properties: union({
     hardwareProfile: {
       vmSize: vmSizeLinux
     }
@@ -198,7 +208,7 @@ resource centosVM1 'Microsoft.Compute/virtualMachines@2023-03-01' = {
         enabled: false
       }
     }
-  }
+  }, spotVmProperties)
 }
 
 // create public ip address for VPN Gateway

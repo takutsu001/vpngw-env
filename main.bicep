@@ -58,6 +58,9 @@ param onprevmName1 string
 param adminUserName string
 @secure()
 param adminPassword string
+// ---- param for Spot VM (optional) ----
+@description('If true, Linux VMs in this environment are deployed as Azure Spot VMs (discounted, may be evicted).')
+param useSpotVm bool = false
 
 // ---- param for VPN Gateway ----
 // Azure VPN Gateway
@@ -106,6 +109,7 @@ module HubModule './modules/hubEnv.bicep' = {
     vmSizeLinux: vmSizeLinux
     adminUserName: adminUserName
     adminPassword: adminPassword
+    useSpotVm: useSpotVm
     hubVPNGWName: hubVPNGWName
     hubLngName: hubLngName
     spoke1VNetAddress: spoke1VNetAddress
@@ -128,6 +132,7 @@ module Spoke1Module './modules/spoke1Env.bicep' = {
     vmSizeLinux: vmSizeLinux
     adminUserName: adminUserName
     adminPassword: adminPassword
+    useSpotVm: useSpotVm
   }
   dependsOn: [
     HubModule
@@ -149,6 +154,7 @@ module Spoke2Module './modules/spoke2Env.bicep' = {
     vmSizeLinux: vmSizeLinux
     adminUserName: adminUserName
     adminPassword: adminPassword
+    useSpotVm: useSpotVm
   }
   dependsOn: [
     HubModule
@@ -171,6 +177,7 @@ module OnpreModule './modules/onpreEnv.bicep' = {
     vmSizeLinux: vmSizeLinux
     adminUserName: adminUserName
     adminPassword: adminPassword
+    useSpotVm: useSpotVm
     onpreVPNGWName: onpreVPNGWName
     onpreLngName: onpreLngName
   } 
@@ -188,8 +195,4 @@ module VPNConnectionModule './modules/vpnConnection.bicep' = {
     onpreLngID: OnpreModule.outputs.onpreLngId
     connectionsharedkey: connectionsharedkey
   } 
-  dependsOn: [
-    HubModule
-    OnpreModule
-  ]
 }

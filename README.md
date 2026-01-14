@@ -29,6 +29,22 @@ https://learn.microsoft.com/ja-jp/azure/azure-resource-manager/bicep/install
 > [!IMPORTANT]
 > NSGルール作成用の ***myipaddress*** の修正は必須となります。それ以外のパラメータの修正は任意で実施してください。Azureに接続するクライアントのパブリックIPアドレスが分からない場合は[こちらのサイト](https://www.cman.jp/network/support/go_access.cgi)で確認することができます
 
+### Spot 割引（Azure Spot VM）について
+本環境で作成される Linux VM（Hub/Spoke/Onpre の検証用 VM）は、パラメータで **Azure Spot VM** として作成することができます。
+
+- `useSpotVm = true` の場合: VM を Spot として作成します（割引が適用される一方、割り当て状況により停止/削除される可能性があります）。
+- `useSpotVm = false` の場合: 通常（オンデマンド）VM として作成します。
+
+> [!NOTE]
+> Spot VM の設定値は本 Bicep 側で固定しています。
+> - `evictionPolicy`: `Deallocate`
+> - `maxPrice`: `-1`（オンデマンド価格まで支払い可）
+>
+> なお、B シリーズ（Standard_B*）は Spot 非対応のため、Spot を使う場合は VM サイズを B 以外に変更してください。
+
+※Git を利用できる環境ではない場合はファイルをダウンロードしていただくでも問題ないと思います。その場合は、以下の構成でローカルPCにファイルを設置してください
+
+
 ※Git を利用できる環境ではない場合はファイルをダウンロードしていただくでも問題ないと思います。その場合は、以下の構成でローカルPCにファイルを設置してください
 
 ```
