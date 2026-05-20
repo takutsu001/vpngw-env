@@ -218,6 +218,11 @@ resource hubVPNGWpip 'Microsoft.Network/publicIPAddresses@2022-05-01' = {
   sku: {
     name: 'Standard'
   }
+  zones: [
+    '1'
+    '2'
+    '3'
+  ]
   properties: {
     publicIPAllocationMethod: 'Static'
     publicIPAddressVersion: 'IPv4'
@@ -249,8 +254,8 @@ resource hubVPNGW 'Microsoft.Network/virtualNetworkGateways@2023-06-01' = {
     enableBgpRouteTranslationForNat: false
     disableIPSecReplayProtection: false
     sku: {
-      name: 'vpngw1'
-      tier: 'vpngw1'
+      name: 'VpnGw1AZ'
+      tier: 'VpnGw1AZ'
     }
     gatewayType: 'Vpn'
     vpnType: 'RouteBased'
