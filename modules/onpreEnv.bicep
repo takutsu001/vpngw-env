@@ -185,6 +185,11 @@ resource centosVM1 'Microsoft.Compute/virtualMachines@2023-03-01' = {
 resource onpreVPNGWpip 'Microsoft.Network/publicIPAddresses@2022-05-01' = {
   name: '${onpreVPNGWName}-pip'
   location: location
+  zones: [
+    '1'
+    '2'
+    '3'
+  ]
   sku: {
     name: 'Standard'
   }
@@ -219,8 +224,8 @@ resource onpreVPNGW 'Microsoft.Network/virtualNetworkGateways@2023-06-01' = {
     enableBgpRouteTranslationForNat: false
     disableIPSecReplayProtection: false
     sku: {
-      name: 'vpngw1'
-      tier: 'vpngw1'
+      name: 'VpnGw1AZ'
+      tier: 'VpnGw1AZ'
     }
     gatewayType: 'Vpn'
     vpnType: 'RouteBased'
